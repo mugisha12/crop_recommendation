@@ -70,6 +70,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'crop_recommender_project.wsgi.application'
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://croprecommendation-production.up.railway.app',
+]
+
+
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
