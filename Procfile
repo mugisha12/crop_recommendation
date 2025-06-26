@@ -1,0 +1,1 @@
+web: gunicorn crop_recommender_project.wsgi --bind 0.0.0.0:$PORT
