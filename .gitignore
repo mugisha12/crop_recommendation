@@ -1,0 +1,39 @@
+# Ignore Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore virtual environments
+venv/
+env/
+ENV/
+.venv/
+.ENV/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore logs and local config
+*.log
+*.env
+.env*
+
+# Ignore test/output coverage
+.coverage
+htmlcov/
+.tox/
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+
+# Ignore package/build artifacts
+*.egg
+*.egg-info/
+dist/
+build/
+pip-wheel-metadata/

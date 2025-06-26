@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Crop Recommendation System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen">
+    
+    <!-- Simple floating background elements -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="absolute top-20 left-20 w-20 h-20 bg-white bg-opacity-10 rounded-full float-animation"></div>
+        <div class="absolute top-40 right-32 w-16 h-16 bg-white bg-opacity-10 rounded-full float-animation" style="animation-delay: -2s;"></div>
+        <div class="absolute bottom-32 right-1/4 w-24 h-24 bg-white bg-opacity-10 rounded-full float-animation" style="animation-delay: -1s;"></div>
+    </div>
+
+    <div class="relative z-10 min-h-screen flex flex-col">
+        
+        <!-- Header -->
+        <header class="p-6">
+            <div class="max-w-6xl mx-auto flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-r from-green-400 to-emerald-600 rounded-full flex items-center justify-center">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3"></path>
+                        </svg>
+                    </div>
+                    <span class="text-xl font-bold text-white">Smart Crop AI</span>
+                </div>
+                <a href="/predict" class="bg-white bg-opacity-20 backdrop-blur-sm text-white px-6 py-2 rounded-full font-semibold hover:bg-opacity-30 transition-all duration-300">
+                    Try Now
+                </a>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-1 flex items-center justify-center p-6">
+            <div class="max-w-6xl mx-auto">
+                
+                <!-- Hero Section -->
+                <div class="glass-card p-8 lg:p-12 rounded-3xl shadow-2xl text-center mb-12">
+                    <div class="flex items-center justify-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-r from-green-400 to-emerald-600 rounded-full flex items-center justify-center mr-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h1 class="text-4xl lg:text-5xl font-bold text-gray-800 mb-2">Smart Crop Recommendation</h1>
+                            <p class="text-xl text-gray-600">AI-Powered Agricultural Intelligence</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-lg text-gray-700 mb-8 max-w-3xl mx-auto">
+                        Get instant crop recommendations based on your soil and climate conditions using advanced machine learning algorithms.
+                    </p>
+
+                    <a href="/predict" 
+                       class="cta-button inline-flex items-center justify-center bg-gradient-to-r from-green-500 to-emerald-600 text-white py-4 px-8 rounded-xl font-semibold text-lg hover:from-green-600 hover:to-emerald-700 transition-all duration-300 shadow-lg">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                        Start Analysis
+                    </a>
+                </div>
+
+                <!-- Features -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                    
+                    <div class="feature-card glass-card p-6 rounded-2xl text-center">
+                        <div class="w-12 h-12 bg-gradient-to-r from-amber-400 to-orange-500 rounded-xl flex items-center justify-center mb-4 mx-auto">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Soil Analysis</h3>
+                        <p class="text-gray-600 text-sm">Analyze N, P, K levels and pH for optimal crop selection</p>
+                    </div>
+
+                    <div class="feature-card glass-card p-6 rounded-2xl text-center">
+                        <div class="w-12 h-12 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-xl flex items-center justify-center mb-4 mx-auto">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Climate Data</h3>
+                        <p class="text-gray-600 text-sm">Temperature, humidity, and rainfall analysis</p>
+                    </div>
+
+                    <div class="feature-card glass-card p-6 rounded-2xl text-center">
+                        <div class="w-12 h-12 bg-gradient-to-r from-green-400 to-emerald-500 rounded-xl flex items-center justify-center mb-4 mx-auto">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">AI Recommendations</h3>
+                        <p class="text-gray-600 text-sm">Machine learning powered crop suggestions</p>
+                    </div>
+                </div>
+
+                <!-- How it works -->
+                <div class="glass-card p-8 rounded-2xl text-center">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">How It Works</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+                        <div>
+                            <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold mx-auto mb-3">1</div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Input Data</h4>
+                            <p class="text-sm text-gray-600">Enter soil and climate values</p>
+                        </div>
+                        <div>
+                            <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold mx-auto mb-3">2</div>
+                            <h4 class="font-semibold text-gray-800 mb-2">AI Analysis</h4>
+                            <p class="text-sm text-gray-600">Algorithm processes your data</p>
+                        </div>
+                        <div>
+                            <div class="w-12 h-12 bg-indigo-500 rounded-full flex items-center justify-center text-white font-bold mx-auto mb-3">3</div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Match Crops</h4>
+                            <p class="text-sm text-gray-600">Find suitable crop options</p>
+                        </div>
+                        <div>
+                            <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold mx-auto mb-3">4</div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Get Results</h4>
+                            <p class="text-sm text-gray-600">Receive recommendations</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="p-6">
+            <div class="max-w-6xl mx-auto text-center">
+                <div class="glass-card p-6 rounded-2xl">
+                    <div class="flex items-center justify-center space-x-6 mb-4">
+                        <div class="flex items-center text-gray-600 text-sm">
+                            <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            98% Accurate
+                        </div>
+                        <div class="flex items-center text-gray-600 text-sm">
+                            <svg class="w-4 h-4 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"></path>
+                            </svg>
+                            Instant Results
+                        </div>
+                        <div class="flex items-center text-gray-600 text-sm">
+                            <svg class="w-4 h-4 mr-2 text-purple-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            15+ Crops
+                        </div>
+                    </div>
+                    <p class="text-gray-500 text-sm">
+                        Powered by <span class="font-semibold">Wisdom High School</span> & <span class="font-semibold">AUCA Innovation Center</span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>
